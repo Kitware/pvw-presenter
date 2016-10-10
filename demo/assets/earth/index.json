@@ -1,0 +1,86 @@
+{
+  "type": [
+    "tonic-query-data-model"
+  ],
+  "arguments_order": [
+    "phi",
+    "theta"
+  ],
+  "arguments": {
+    "phi": {
+      "loop": "modulo",
+      "ui": "slider",
+      "values": [
+        "0.0",
+        "20.0",
+        "40.0",
+        "60.0",
+        "80.0",
+        "100.0",
+        "120.0",
+        "140.0",
+        "160.0",
+        "180.0",
+        "200.0",
+        "220.0",
+        "240.0",
+        "260.0",
+        "280.0",
+        "300.0",
+        "320.0",
+        "340.0"
+      ],
+      "bind": {
+        "mouse": {
+          "drag": {
+            "modifier": 0,
+            "coordinate": 0,
+            "step": 10,
+            "orientation": 1
+          }
+        }
+      }
+    },
+    "theta": {
+      "default": 3,
+      "ui": "slider",
+      "values": [
+        "15.0",
+        "40.0",
+        "65.0",
+        "90",
+        "115.0",
+        "140.0",
+        "165.0"
+      ],
+      "bind": {
+        "mouse": {
+          "drag": {
+            "modifier": 0,
+            "coordinate": 1,
+            "step": 30,
+            "orientation": 1
+          }
+        }
+      }
+    }
+  },
+  "data": [
+    {
+      "name": "image",
+      "type": "blob",
+      "dimensions": [
+        500,
+        500
+      ],
+      "mimeType": "image/jpg",
+      "pattern": "0.0/{theta}_{phi}.jpg_small.jpg"
+    }
+  ],
+  "metadata": {
+    "title": "Light data 500x500 - 7 timesteps",
+    "description": "Some simulation data from MPAS",
+    "backgroundColor": "#000000",
+    "size": "590.3 MB"
+  }
+}
