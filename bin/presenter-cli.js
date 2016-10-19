@@ -40,7 +40,7 @@ console.log(' => Building your presentation...');
 
 // Figure out slides path
 var slidesRoot = (program.demo || !program.slides) ? path.join(__dirname, '../demo') : program.slides;
-var slidesPath = path.join(slidesRoot, '../demo/slides.html');
+var slidesPath = path.join(slidesRoot, 'slides.html');
 
 // Find out ParaView location
 if(!paraview) {
