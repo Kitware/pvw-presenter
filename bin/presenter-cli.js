@@ -42,10 +42,19 @@ console.log(' => Building your presentation...');
 var slidesRoot = (program.demo || !program.slides) ? path.join(__dirname, '../demo') : program.slides;
 var slidesPath = path.join(slidesRoot, 'slides.html');
 
-// Find out ParaView location
+// Try to find a paraview directory inside /Applications or /opt
+const pvPossibleBasePath = [];
+['/Applications', '/opt', '/usr/local/opt/'].forEach(function (directoryPath) {
+  shell.ls(directoryPath).forEach(function (fileName) {
+    if (fileName.toLowerCase().indexOf('paraview') !== -1) {
+      pvPossibleBasePath.push(path.join(directoryPath, fileName));
+    }
+  });
+});
+
 if(!paraview) {
     paraview = [];
-    [ program.paraview, '/Applications/paraview.app/Contents', '/opt/paraview'].forEach(function(directory){
+    [program.paraview].concat(pvPossibleBasePath).forEach(function(directory){
         try {
             if(fs.statSync(directory).isDirectory()) {
                 paraview.push(directory);
